@@ -4,7 +4,6 @@ import com.sxc.diamond.config.DiamondHandler;
 import com.sxc.diamond.manager.ManagerListenerAdapter;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 @Service
@@ -13,9 +12,9 @@ public class Demo {
     @Resource
     private DiamondHandler diamondHandler;
 
-    @PostConstruct
+//    @PostConstruct
     public void init() {
-        diamondHandler.receiveConfigInfo("item-center", "com.item.msg", new ManagerListenerAdapter() {
+        diamondHandler.receiveConfigInfo("groupId", "dataId", new ManagerListenerAdapter() {
             @Override
             public void receiveConfigInfo(String s) {
                 System.out.println("接受到数据:\n" + s);

@@ -1,11 +1,9 @@
-package com.xyz;
+package com.xyz.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
-@ComponentScan(basePackages = {"com.sxc.diamond.config", "com.xyz.beans"})
+@SpringBootApplication(scanBasePackages = {"com.sxc.diamond.config", "com.xyz.beans", "com.xyz.configure"})
 public class StudyJdbcApplication {
 
 	public static void main(String[] args) {

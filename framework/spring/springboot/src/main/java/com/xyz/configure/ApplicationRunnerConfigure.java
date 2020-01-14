@@ -22,7 +22,7 @@ public class ApplicationRunnerConfigure {
 
     @Bean
     public CommonBean commonBean() {
-        System.out.println(11111111);
+        System.out.println("common Bean @Bean loader in @Configuration");
         return new CommonBean();
     }
 

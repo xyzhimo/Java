@@ -85,6 +85,11 @@
             <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
+    <!--开发环境-->
+    <springProfile name="default">
+        <property name="LOG_PATH" value="${user.home}/logs/taobao-tomcat-production-7.0.59.3/logs"/>
+    </springProfile>
+
 
     <!-- 测试环境+开发环境. 多个使用逗号隔开. -->
     <springProfile name="test,dev">

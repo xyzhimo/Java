@@ -3,7 +3,7 @@ package com.xyz.application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"com.sxc.diamond.config", "com.xyz.beans", "com.xyz.configure"})
+@SpringBootApplication(scanBasePackages = {"com.sxc.diamond.config", "com.xyz.beans", "com.xyz.configure", "com.xyz.common"})
 public class StudyJdbcApplication {
 
 	public static void main(String[] args) {

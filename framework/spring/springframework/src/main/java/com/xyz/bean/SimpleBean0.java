@@ -1,8 +1,8 @@
 package com.xyz.bean;
 
-public class SimpleBean {
+public class SimpleBean0 {
 
-    public SimpleBean() {
-        System.out.println("simple bean construct method invoked!");
+    public SimpleBean0() {
+        System.out.println("[0] simple bean 0 construct method invoked!");
     }
 }

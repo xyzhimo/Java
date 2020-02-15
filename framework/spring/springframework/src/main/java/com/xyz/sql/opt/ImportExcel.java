@@ -4,7 +4,7 @@ import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
-import com.alibaba.excel.util.TypeUtil;
+import com.alibaba.excel.util.DateUtils;
 import com.google.common.collect.Lists;
 import com.xyz.sql.entity.ColumnMeta;
 import com.xyz.sql.entity.TableMeta;
@@ -22,6 +22,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.sql.Types;
+import java.text.ParseException;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
@@ -145,14 +146,18 @@ class ImportSqlEventListener extends AnalysisEventListener<List<String>> {
                             int cell = Integer.parseInt(dataStr);
                             ps.setInt(columnIndex + 1, cell);
                         } else if (columnMeta.getDataType() == Types.TIMESTAMP) {
-                            Date cell;
-                            if (dataStr.contains("-") || dataStr.contains("/") || dataStr.contains(":")) {
-                                cell = TypeUtil.getSimpleDateFormatDate(dataStr, "yyyy-MM-dd HH:mm:ss");
-                            } else {
-                                double d = Double.parseDouble(dataStr);
-                                cell = HSSFDateUtil.getJavaDate(d, false);
+                            try {
+                                Date cell;
+                                if (dataStr.contains("-") || dataStr.contains("/") || dataStr.contains(":")) {
+                                    cell = DateUtils.parseDate(dataStr, "yyyy-MM-dd HH:mm:ss");
+                                } else {
+                                    double d = Double.parseDouble(dataStr);
+                                    cell = HSSFDateUtil.getJavaDate(d, false);
+                                }
+                                ps.setTimestamp(columnIndex + 1, Timestamp.from(cell.toInstant()));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
                             }
-                            ps.setTimestamp(columnIndex + 1, Timestamp.from(cell.toInstant()));
                         } else {
                             ps.setString(columnIndex + 1, dataStr);
                         }

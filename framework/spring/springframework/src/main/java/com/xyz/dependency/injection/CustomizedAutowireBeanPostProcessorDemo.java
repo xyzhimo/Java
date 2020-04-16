@@ -10,7 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class CustomizedAutowireBeanPostProcessorDemo {
 
     @Autowired
-    private User user;
+    public User user;
 
     @XInject
     private User xInjectuser;

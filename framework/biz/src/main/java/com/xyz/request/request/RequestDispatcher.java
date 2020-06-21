@@ -12,16 +12,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.concurrent.Callable;
 
-/**
- * Description: 请求调度器
- *
- * PackageName: com.sxc.jotunheim.trade.infrastructure.base.request
- * FileName: RequestDispatcher.java
- * Copyright: Copyright (c)2019. songxiaocai
- *
- * @author: xyz
- * @create: 2019-08-08
- */
 @Service
 public class RequestDispatcher {
 

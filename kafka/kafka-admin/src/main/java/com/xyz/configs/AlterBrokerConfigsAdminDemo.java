@@ -5,10 +5,7 @@ import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.AlterConfigsResult;
 import org.apache.kafka.clients.admin.Config;
 import org.apache.kafka.clients.admin.ConfigEntry;
-import org.apache.kafka.clients.admin.CreateTopicsResult;
-import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.config.ConfigResource;
-import org.apache.kafka.common.config.TopicConfig;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,10 +13,11 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
-public class AlterTopicConfigsAdminDemo {
+
+public class AlterBrokerConfigsAdminDemo {
 
     public static final String brokerList = "localhost:9092";
-    public static final String topic = "topic-logs";
+    public static final String brokerId = "0";
 
     public static void main(String[] args) {
 
@@ -28,10 +26,10 @@ public class AlterTopicConfigsAdminDemo {
         properties.put(AdminClientConfig.REQUEST_TIMEOUT_MS_CONFIG, 30000);
         AdminClient adminClient = AdminClient.create(properties);
 
-        ConfigResource resource = new ConfigResource(ConfigResource.Type.TOPIC, topic);
+        ConfigResource resource = new ConfigResource(ConfigResource.Type.BROKER, brokerId);
 
 //        ConfigEntry configEntry = new ConfigEntry(TopicConfig.CLEANUP_POLICY_CONFIG, TopicConfig.CLEANUP_POLICY_COMPACT);
-        ConfigEntry configEntry = new ConfigEntry(TopicConfig.SEGMENT_BYTES_CONFIG, String.valueOf(1024));
+        ConfigEntry configEntry = new ConfigEntry("log.roll.ms", String.valueOf(10000));
         Config config = new Config(Collections.singletonList(configEntry));
 
         Map<ConfigResource, Config> configs = new HashMap<>();

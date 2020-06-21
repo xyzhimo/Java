@@ -2,6 +2,7 @@ package com.xyz.beans;
 
 import com.sxc.diamond.config.DiamondHandler;
 import com.sxc.diamond.manager.ManagerListenerAdapter;
+import com.xyz.common.CommonBeanProxy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -11,6 +12,9 @@ public class Demo {
 
     @Resource
     private DiamondHandler diamondHandler;
+
+    @Resource
+    private CommonBeanProxy commonBeanProxy;
 
 //    @PostConstruct
     public void init() {

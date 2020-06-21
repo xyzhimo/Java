@@ -12,6 +12,7 @@
     <modules>
         <module>framework</module>
         <module>kafka</module>
+        <module>data-structure</module>
     </modules>
 
     <properties>
@@ -27,7 +28,7 @@
         <lombok.version>1.18.2</lombok.version>
         <easyexcel.version>2.0.0</easyexcel.version>
         <fastjson.version>1.2.48</fastjson.version>
-        <guava.version>24.0-SNAPSHOT</guava.version>
+        <guava.version>20.0</guava.version>
         <rxjava.version>2.2.8</rxjava.version>
     </properties>
 

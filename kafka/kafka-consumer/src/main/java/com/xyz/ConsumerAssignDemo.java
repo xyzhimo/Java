@@ -4,15 +4,19 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.PartitionInfo;
+import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.time.Duration;
 import java.util.Collections;
+import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
-public class ConsumerFastStart {
+public class ConsumerAssignDemo {
 
-    public static final String brokerList = "localhost:9092";
+    public static final String brokerList = "49.232.9.56:9092";
     public static final String topic = "topic-2";
     public static final String groupId = "group-demo";
 
@@ -25,7 +29,10 @@ public class ConsumerFastStart {
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
-        consumer.subscribe(Collections.singletonList(topic));
+        List<PartitionInfo> partitionInfos = consumer.partitionsFor(topic);
+        List<TopicPartition> topicPartitions = partitionInfos.stream()
+                .map(x -> new TopicPartition(x.topic(), x.partition())).collect(Collectors.toList());
+        consumer.assign(topicPartitions);
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(Long.MAX_VALUE));
             for (ConsumerRecord<String, String> record : records) {

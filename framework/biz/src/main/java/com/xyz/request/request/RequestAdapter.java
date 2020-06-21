@@ -3,16 +3,6 @@ package com.xyz.request.request;
 
 import java.util.Set;
 
-/**
- * Description: 内部请求服务适配器类
- * <p>
- * PackageName: com.sxc.jotunheim.trade.infrastructure.base.request
- * FileName: RequestAdapter.java
- * Copyright: Copyright (c)2019. songxiaocai
- *
- * @author: xyz
- * @create: 2019-08-08
- */
 public class RequestAdapter extends InnerRequest {
 
     private static final long serialVersionUID = 8350035885108155607L;

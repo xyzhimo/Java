@@ -5,16 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Description: 内部请求封装类
- *
- * PackageName: com.sxc.jotunheim.trade.infrastructure.base.request
- * FileName: InnerRequest.java
- * Copyright: Copyright (c)2019. songxiaocai
- *
- * @author: xyz
- * @create: 2019-08-08
- */
 public class InnerRequest implements Request {
 
 	private static final long serialVersionUID = -6902403430608462635L;

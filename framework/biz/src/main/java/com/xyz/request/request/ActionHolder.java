@@ -8,18 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Description:  操作容器.
- * 运用启动时，就加载进所有的Action,
- * 需要开发新功能接口，只要新增相应的具体action即可
- * <p>
- * PackageName: com.sxc.jotunheim.trade.infrastructure.base.request
- * FileName: ActionHolder.java
- * Copyright: Copyright (c)2019. songxiaocai
- *
- * @author: xyz
- * @create: 2019-08-08
- */
 @Service
 public class ActionHolder implements ApplicationContextAware {
 

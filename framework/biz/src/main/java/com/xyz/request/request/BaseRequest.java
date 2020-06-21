@@ -4,16 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Description: 基础请求对象
- *
- * PackageName: com.sxc.jotunheim.trade.infrastructure.base.request
- * FileName: BaseRequest.java
- * Copyright: Copyright (c)2019. songxiaocai
- *
- * @author: xyz
- * @create: 2019-08-08
- */
 public class BaseRequest implements Request {
 	private static final long serialVersionUID = -5466899657256730640L;
 	private String command;

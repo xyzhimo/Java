@@ -6,11 +6,12 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
+import java.util.concurrent.FutureTask;
 
 public class ProducerFastStart {
 
-    public static final String brokerList = "localhost:9092";
-    public static final String topic = "topic-demo";
+    public static final String brokerList = "49.232.9.56:9092";
+    public static final String topic = "topic-2";
 
 
     public static void main(String[] args) {

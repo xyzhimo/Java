@@ -21,7 +21,6 @@ public class WriteExcel {
 
     public static void main(String[] args) throws Exception {
 
-        //23:55:39.586 [http-bio-8089-exec-11] INFO  ApiProfiler - wsop.com.sxc.item.getItemDetail;3.0;257
         List<Model> list = Lists.newArrayList();
 
         List<Model> api09 = parseLog("2019-06-09");

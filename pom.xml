@@ -28,7 +28,7 @@
         <dbunit.version>2.5.4</dbunit.version>
         <lombok.version>1.18.2</lombok.version>
         <easyexcel.version>2.0.0</easyexcel.version>
-        <fastjson.version>1.2.48</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <guava.version>20.0</guava.version>
         <rxjava.version>2.2.8</rxjava.version>
     </properties>
